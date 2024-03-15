@@ -56,15 +56,15 @@
           '(border-width . 0)
           '(vertical-scroll-bars . nil)
           '(horizontal-scroll-bars . nil)
-          '(internal-border-width . 16)
+          ;; '(internal-border-width . 16)
           '(tool-bar-lines . 0)
           '(menu-bar-lines . 0)
-          '(right-fringe . 8)
-          '(left-fringe . 8)
+          ;; '(right-fringe . 8)
+          ;; '(left-fringe . 8)
           '(menu-bar-lines . 0))))
 
-  (setq left-margin-width 1
-	right-margin-width 1)
+  ;; (setq left-margin-width 1
+  ;;       right-margin-width 1)
 
   ;; Ignore Xresources, since it will interfere with my theme down the
   ;; line.
@@ -95,6 +95,9 @@
         inhibit-startup-message t
         initial-scratch-message "")
 
+  ;; In noninteractive sessions, prioritize non-byte-compiled source
+  ;; files to prevent the use of stale byte-code. Otherwise, it saves
+  ;; us a little IO time to skip the mtime checks on every *.elc file.
   (setq load-prefer-newer noninteractive)
 
   ;; Disable bidirectional text scanning
