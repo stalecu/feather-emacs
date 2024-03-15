@@ -1,4 +1,4 @@
-;;; ft-packages.el --- Elpaca loader -*- lexical-binding: t; -*-
+;;; core/package-manager.el --- Elpaca loader -*- lexical-binding: t; -*-
 
 ;; Copyright (c) 2024 Alecu Ștefan-Iulian
 
@@ -72,4 +72,6 @@
 
 (elpaca-wait)
 
-(provide 'ft-elpaca)
+(provide 'core/package-manager)
+
+;;; core/package-manager.el ends here

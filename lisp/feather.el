@@ -27,6 +27,15 @@
 
 ;;; Code:
 
-(require 'ft-elpaca)
+(require 'core/load-paths)
+
+;; This is so that, by the time Elpaca and all other packages kick in,
+;; we move everything to `ft/emacs-cache-directory' so it doesn't
+;; clutter our real `ft/feather-directory'. While we're here, we'll
+;; also set the auto-save directory.
+(setq user-emacs-directory ft/emacs-cache-directory
+      auto-save-file-name-transforms `((".*" ,(file-name-as-directory ft/emacs-auto-save-directory) t)))
+
+(require 'core/package-manager)
 
 (provide 'feather)
