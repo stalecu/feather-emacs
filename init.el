@@ -28,22 +28,10 @@
 
 ;;; Code:
 
-(require 'xdg)
-
-;; Before doing anything else, we'll load the files inside the `lisp'
-;; directory and then set the user directory inside `~/.cache/emacs'
-;; early (this is so `~/.config/emacs' doesn't get cluttered with
-;; transient and other misc. files. Out of sight, out of mind.
-
-(defconst ft/cache-dir (expand-file-name "emacs/" (xdg-cache-home))
-  "Cache directory for Feather Emacs")
-(defconst ft/emacs-dir (expand-file-name "emacs/" (xdg-config-home))
-  "Directory where init.el resides (~/.config/emacs)")
-(defconst ft/lisp-dir (expand-file-name "lisp" ft/emacs-dir)
-  "Directory where all the other lisp files reside inside `ft/emacs-dir'")
-
-(add-to-list 'load-path ft/lisp-dir)
-(setq-default user-emacs-directory ft/cache-dir)
+(load (expand-file-name "lisp/core/load-paths"
+                        (file-name-directory
+                         (or load-file-name
+			     (buffer-file-name)))) nil)
 (require 'feather)
 
 ;;; init.el ends here
